@@ -1,0 +1,49 @@
+1.Restraurant management system.
+
+import java.util.Scanner;
+
+public class Foodprocess {
+    public static void main(String[] args) {
+        Scanner s= new Scanner(System.in);
+        System.out.println("Welcome to restraurant management system ");
+        System.out.println("1. Dosa- Rs. 30");
+        System.out.println("2. idli - Rs. 50");
+        System.out.println("3. Purisagu - Rs. 30");
+        System.out.println("4. Rice- Rs. 40");
+        
+        int item = s.nextInt();
+        System.out.println("Enter the number of plates of item:");
+        int quantity = s.nextInt();
+        System.out.println("Enter the GST rate (%):");
+        double gst = s.nextDouble();
+        double cost = 0;
+        switch (item) {
+            case 1:
+                cost = 30;
+                break;
+            case 2:
+                 cost = 50;
+                break;
+            case 3:
+                cost = 30;
+                break;
+            case 4:
+                 cost = 40;
+                break;
+            
+            default:
+                System.out.println("Invalid item number!");
+                System.exit(0);
+        }
+        double totalCost = cost * quantity;
+        double cgst = (totalCost * gst) / 200;
+        double igst = (totalCost * gst) / 100;
+        System.out.println("bill:");
+        System.out.println("Item: " + item);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("GST rate: " + gst + "%");
+        System.out.println("CGST: Rs. " + cgst);
+        System.out.println("IGST: Rs. " + igst);
+        System.out.println("Total cost: Rs. " + (totalCost + cgst + igst));
+    }
+}
